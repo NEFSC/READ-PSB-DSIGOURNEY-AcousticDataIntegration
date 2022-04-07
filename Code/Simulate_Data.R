@@ -1,7 +1,5 @@
 
- #Test new commit     
-
-
+ 
 #Starting perpendicular distance to trackline
 perp.dist<-runif(N,0,W_Below)
 tTime<-60 #Transect time (total time of obsrvation process for each whale)

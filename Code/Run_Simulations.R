@@ -87,9 +87,9 @@ summary_data<-as.data.frame(summary_data)
 #Run simulations and save results 
 for (s in 1:sims){
        
-source("Simulate_Data.R") #Simulate acoustic nd visual datasets
+source("Simulate_Data.R") #Simulate acoustic and visual datasets
    
-source("Organize_Simulation_Data.R") #Organize data forinout into model 
+source("Organize_Simulation_Data.R") #Organize data for input into model 
    
 source("CMR_DS_Model.R")   #Analyze data with CMR model  
    
