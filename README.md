@@ -1,6 +1,6 @@
 **Summary**
 
-The code in this repository contains the scripts to run the analyses described in the manuscript " Integrating passive acoustic data from a towed hydrophone array with visual line transect data to estimate abundeca and surface availability: A case study with sperm whales (*Physeter macrocephalus*)" by Sigourney et al. 2022 (in review at Methdods in Ecology and Evolution). Code is provided to recreate the simulations and run the models on the simulation code and code to re-run the analysis of the sperm whale data presented in the text. There are 7 scripts in total with 5 scripts that are used in the simulation analysis and 2 scripts to run the sperm whale analysis poopy
+The code in this repository contains the scripts to run the analyses described in the manuscript " Integrating passive acoustic data from a towed hydrophone array with visual line transect data to estimate abundeca and surface availability: A case study with sperm whales (*Physeter macrocephalus*)" by Sigourney et al. 2022 (in review at Methdods in Ecology and Evolution). Code is provided to recreate the simulations and run the models on the simulation code and code to re-run the analysis of the sperm whale data presented in the text. There are 7 scripts in total with 5 scripts that are used in the simulation analysis and 2 scripts to run the sperm whale analysis
 
 **Simulation code**
 
