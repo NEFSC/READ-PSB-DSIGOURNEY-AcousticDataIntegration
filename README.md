@@ -20,7 +20,7 @@ The code in this repository contains the scripts to run the analyses described i
 
 *Hybrid_model_for_sperm_whales.R* – This script analyses the sperm whale data using the Hybrid Method. To analyze both the visual data and acoustic data a hazard rate model is used (in lieu of a half-normal detection function). Also, because the visual line transects used a double observer approach mark-recapture distance sampling (MRDS) is use to analyze the visual data to correct for detectability on the trackline, p(0). Finally, an estimate of availability bias is included in the visual analysis to compare the corrected abundance estimates to the estimates from the Hybrid Method.
 
-*format_MRDS_data.R* - This code re-formats the visual data so that it can be analyszed using theBayesian mark-recapture distance sample (MRDS) code.
+*format_MRDS_data.R* - This code re-formats the visual data so that it can be analyzed using theBayesian mark-recapture distance sample (MRDS) code.
 
 **Data sets**
 
