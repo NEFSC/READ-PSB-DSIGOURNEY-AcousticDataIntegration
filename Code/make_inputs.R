@@ -1,11 +1,8 @@
+#New version for revised manuscript (for PeerJ) (Original verion on Github)   
+
    
-
-#All_dat<-read.csv("Simulated_Below_for_analysis.csv")
-
-
-# All_dat<-subset(All_dat, Y<(y_max*-1) & X<x_max_trunc & Y>(y_min*-1)) 
-   
-     
+ make_inputs<-function(Below_Dat,Above.obs,Nobs_Above,
+                        Below.obs,Nobs_Below){    
 ID_vec<-unique(Below_Dat$NewEventID)
 N.whales<-length(ID_vec)
              
@@ -113,8 +110,8 @@ dist_Below3<-wide_detected.sub$Distance #For Hybrid Model (CMR analysis)
 
 
 #For "Ones"  trick
-ones.dist_A<-array(1,N_Above)
-ones.dist_B<-array(1,N_Below)
+ones.dist_A<-array(1,Nobs_Above)
+ones.dist_B<-array(1,Nobs_Below)
 
 #Data Augmentation CMR-DS Method
 get.first<-function(x)min(which(x!=0))
@@ -123,9 +120,12 @@ f<-apply(detected_mat,1,get.first)
 g<-apply(detected_mat,1,get.last)
 n<-nrow(detected_mat)
 t<-ncol(detected_mat)
+
+
          
 y<-as.matrix(detected_mat)
-nz<-120
+#y=y[,7:20]
+nz<-200
 y<-rbind(y,matrix(rep(0,ncol(y)*nz),ncol=ncol(y),byrow=TRUE))
 M<-nrow(y)
 T<-ncol(y)
@@ -134,15 +134,6 @@ T<-ncol(y)
 z.mat<-matrix(1,nrow=dim(y)[1], ncol=dim(y)[2])
 
 
-#Make age matrix  
-age<-matrix(0,nrow=n,ncol=t) 
-for (i in 1:n){
-    for (j in f[i]:t){
-     age[i,j]<-j-f[i]+1
-            }
-            }
-age<-rbind(age,matrix(rep(NA,ncol(age)*nz),ncol=ncol(age),byrow=TRUE)) 
-    
 
 dist_Below1<-c(dist_Below1,rep(NA,nz))
 
@@ -162,25 +153,16 @@ T.sub<-ncol(y.sub)
 #Make z matrix        
 z.mat.sub<-matrix(1,nrow=dim(y.sub)[1], ncol=dim(y.sub)[2])
 
-#Make age matrix  
-age.sub<-matrix(0,nrow=n.sub,ncol=t.sub) 
-for (i in 1:n.sub){
-    for (j in f.sub[i]:t.sub){
-     age.sub[i,j]<-j-f.sub[i]+1
-            }
-            }
-age.sub<-rbind(age.sub,matrix(rep(NA,ncol(age.sub)*nz.sub),ncol=ncol(age.sub),byrow=TRUE)) 
-    
+
 
 dist_Below3<-c(dist_Below3,rep(NA,nz.sub))
 
+inputs<-list(y=y,M=M,T=T,z.mat=z.mat,y.sub=y.sub,M.sub=M.sub,T.sub=T.sub,
+             z.mat.sub=z.mat.sub,dist_Above=dist_Above,dist_Below1=dist_Below1,
+             dist_Below2=dist_Below2,dist_Below3=dist_Below3,ones.dist_A=ones.dist_A,
+             ones.dist_B=ones.dist_B)
+               
+return(inputs)
+}
 
-
-#MCMC parameters
-nitt=3000
-burnin=3000
-chains=1
-thin=3
-        
- 
 
